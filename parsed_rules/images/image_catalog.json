@@ -2,61 +2,279 @@
   "usau": {
     "field_diagram": {
       "file": "usau/field_diagram.png",
-      "description": "USAU official field diagram showing dimensions: 70 yards (64m) central zone, 20 yards (18m) end zones, 40 yards (37m) width",
-      "keywords": ["field", "diagram", "dimensions", "end zone", "central zone", "brick mark", "usau"],
-      "source": "Appendix A: Field Diagram"
+      "description": "Field Diagram (Appendix A)",
+      "keywords": ["field diagram"],
+      "source": "Appendix A"
     },
     "hand_signals": [
       {
-        "file": "usau/usau_page45_img1.jpeg",
-        "description": "Hand signal: Disc direction indicator - arm extended horizontally pointing direction of possession",
-        "keywords": ["hand signal", "direction", "possession", "observer"],
-        "source": "Appendix D: Hand Signals"
+        "file": "usau/in_out_of_bounds_direction.jpeg",
+        "description": "In/Out-of-bounds Direction Signal (Appendix D1)",
+        "keywords": ["in-bounds signal", "out-of-bounds signal", "disc direction signal"],
+        "source": "Appendix D1"
       },
       {
-        "file": "usau/usau_page45_img2.jpeg",
-        "description": "Hand signal: One finger raised - indicating count or point",
-        "keywords": ["hand signal", "count", "point", "observer"],
-        "source": "Appendix D: Hand Signals"
+        "file": "usau/disc_up.jpeg",
+        "description": "Disc Up Signal (Appendix D1)",
+        "keywords": ["disc up signal"],
+        "source": "Appendix D1"
       },
       {
-        "file": "usau/usau_page45_img3.jpeg",
-        "description": "Hand signal from Appendix D",
-        "keywords": ["hand signal", "observer"],
-        "source": "Appendix D: Hand Signals"
+        "file": "usau/disc_down.jpeg",
+        "description": "Disc Down Signal (Appendix D1)",
+        "keywords": ["disc down signal"],
+        "source": "Appendix D1"
       },
       {
-        "file": "usau/usau_page45_img4.jpeg",
-        "description": "Hand signal from Appendix D",
-        "keywords": ["hand signal", "observer"],
-        "source": "Appendix D: Hand Signals"
+        "file": "usau/end_zone.jpeg",
+        "description": "In the End Zone Signal (Appendix D1)",
+        "keywords": ["end zone signal", "in the end zone signal"],
+        "source": "Appendix D1"
       },
       {
-        "file": "usau/usau_page45_img5.jpeg",
-        "description": "Hand signal from Appendix D",
-        "keywords": ["hand signal", "observer"],
-        "source": "Appendix D: Hand Signals"
+        "file": "usau/goal.jpeg",
+        "description": "Goal Signal (Appendix D1)",
+        "keywords": ["goal signal"],
+        "source": "Appendix D1"
       },
       {
-        "file": "usau/usau_page45_img6.jpeg",
-        "description": "Hand signal from Appendix D",
-        "keywords": ["hand signal", "observer"],
-        "source": "Appendix D: Hand Signals"
+        "file": "usau/violation.jpeg",
+        "description": "Violation Signal (Appendix D1)",
+        "keywords": ["violation signal", "stop signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/force_out_foul.jpeg",
+        "description": "Force-out Foul Signal (Appendix D1)",
+        "keywords": ["force-out foul signal", "force out signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/bobble.jpeg",
+        "description": "Bobble Signal (Appendix D1)",
+        "keywords": ["bobble signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/foul.jpeg",
+        "description": "Foul Signal (Appendix D1)",
+        "keywords": ["foul signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/no_contest.jpeg",
+        "description": "No Contest Signal (Appendix D1)",
+        "keywords": ["no contest signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/contest.jpeg",
+        "description": "Contest Signal (Appendix D1)",
+        "keywords": ["contest signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/retraction.jpeg",
+        "description": "Retraction Signal (Appendix D1)",
+        "keywords": ["retraction signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/injury_timeout.jpeg",
+        "description": "Injury Timeout Signal (Appendix D1)",
+        "keywords": ["injury timeout signal", "injury signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/injury_substitution.jpeg",
+        "description": "Injury Substitution Signal (Appendix D1)",
+        "keywords": ["injury substitution signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/disc_uncatchable.jpeg",
+        "description": "Disc Uncatchable Signal (Appendix D1)",
+        "keywords": ["disc uncatchable signal", "uncatchable signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/pick.jpeg",
+        "description": "Pick Signal (Appendix D1)",
+        "keywords": ["pick signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/travel.jpeg",
+        "description": "Travel Signal (Appendix D1)",
+        "keywords": ["travel signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/double_team.jpeg",
+        "description": "Double Team Signal (Appendix D1)",
+        "keywords": ["double team signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/disc_space.jpeg",
+        "description": "Disc Space Signal (Appendix D1)",
+        "keywords": ["disc space signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/fast_count.jpeg",
+        "description": "Fast Count Signal (Appendix D1)",
+        "keywords": ["fast count signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/vision_blocking.jpeg",
+        "description": "Vision Blocking Signal (Appendix D1)",
+        "keywords": ["vision blocking signal", "vision signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/stall.jpeg",
+        "description": "Stall Signal (Appendix D1)",
+        "keywords": ["stall signal", "time violation signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/readiness.jpeg",
+        "description": "Readiness Signal (Appendix D1)",
+        "keywords": ["readiness signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/brick.jpeg",
+        "description": "Brick Signal (Appendix D1)",
+        "keywords": ["brick signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/play_has_stopped.jpeg",
+        "description": "Play Has Stopped Signal (Appendix D1)",
+        "keywords": ["play stopped signal", "play has stopped signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/announce_stall.jpeg",
+        "description": "Announce Stall Signal (Appendix D1)",
+        "keywords": ["announce stall signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/stall_count.jpeg",
+        "description": "Stall Count Signal (Appendix D1)",
+        "keywords": ["stall count signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/gender_ratio_women.jpeg",
+        "description": "Gender Ratio 4 Women Signal (Appendix D1)",
+        "keywords": ["gender ratio women signal", "4 women signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/gender_ratio_men.jpeg",
+        "description": "Gender Ratio 4 Men Signal (Appendix D1)",
+        "keywords": ["gender ratio men signal", "4 men signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/offsides.jpeg",
+        "description": "Offsides Signal (Appendix D1)",
+        "keywords": ["offsides signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/false_start.jpeg",
+        "description": "False Start Signal (Appendix D1)",
+        "keywords": ["false start signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/ten_seconds.jpeg",
+        "description": "10 Seconds Signal (Appendix D1)",
+        "keywords": ["ten seconds signal", "10 seconds signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/twenty_seconds.jpeg",
+        "description": "20 Seconds Signal (Appendix D1)",
+        "keywords": ["twenty seconds signal", "20 seconds signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/timeout.jpeg",
+        "description": "Timeout Signal (Appendix D1)",
+        "keywords": ["timeout signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/spirit_timeout.jpeg",
+        "description": "Spirit Timeout Signal (Appendix D1)",
+        "keywords": ["spirit timeout signal"],
+        "source": "Appendix D1"
+      },
+      {
+        "file": "usau/disc_check.jpeg",
+        "description": "Disc Check Signal (Appendix D1)",
+        "keywords": ["disc check signal", "check disc signal"],
+        "source": "Appendix D1"
+      }
+    ],
+    "observer_signals": [
+      {
+        "file": "usau/observer_timeout.jpeg",
+        "description": "Observer Timeout Signal (Appendix D2)",
+        "keywords": ["observer timeout signal"],
+        "source": "Appendix D2"
+      },
+      {
+        "file": "usau/observer_call_on_field.jpeg",
+        "description": "Observer Call on Field Signal (Appendix D2)",
+        "keywords": ["call on field signal", "observer call signal"],
+        "source": "Appendix D2"
+      },
+      {
+        "file": "usau/observer_double_team.jpeg",
+        "description": "Observer Double Team Signal (Appendix D2)",
+        "keywords": ["observer double team signal"],
+        "source": "Appendix D2"
+      },
+      {
+        "file": "usau/observer_overrule.jpeg",
+        "description": "Observer Overrule Signal (Appendix D2)",
+        "keywords": ["observer overrule signal"],
+        "source": "Appendix D2"
+      },
+      {
+        "file": "usau/observer_ruling_stands.jpeg",
+        "description": "Observer Ruling Stands Signal (Appendix D2)",
+        "keywords": ["ruling stands signal", "observer ruling stands signal"],
+        "source": "Appendix D2"
+      },
+      {
+        "file": "usau/observer_ruling.jpeg",
+        "description": "Observer Ruling Signal (Appendix D2)",
+        "keywords": ["observer ruling signal"],
+        "source": "Appendix D2"
+      },
+      {
+        "file": "usau/observer_spirit_timeout.jpeg",
+        "description": "Observer Spirit Timeout Signal (Appendix D2)",
+        "keywords": ["observer spirit timeout signal"],
+        "source": "Appendix D2"
       }
     ]
   },
   "wfdf": {
-    "logo": {
-      "file": "wfdf/wfdf_page1_img1.jpeg",
-      "description": "WFDF logo",
-      "keywords": ["logo", "wfdf"],
-      "source": "Cover page"
-    },
     "field_diagram": {
       "file": "wfdf/field_diagram.jpeg",
-      "description": "WFDF official field diagram showing dimensions: 64m central zone, 18m end zones, 37m width, 100m total length with brick marks",
-      "keywords": ["field", "diagram", "dimensions", "end zone", "central zone", "brick mark", "wfdf"],
-      "source": "Section 2: Playing Field (Figure 1)"
+      "description": "Field Diagram (Section 2)",
+      "keywords": ["field diagram"],
+      "source": "Section 2"
     }
   }
 }

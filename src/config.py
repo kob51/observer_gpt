@@ -1,6 +1,5 @@
 """Configuration management for Observer-GPT."""
 
-import os
 from pathlib import Path
 from typing import Optional
 
@@ -8,7 +7,11 @@ import yaml
 
 
 class Config:
-    """Centralized configuration for API keys and settings."""
+    """Centralized configuration for API keys and settings.
+
+    Loads configuration from config.yaml in the project root.
+    Currently supports Google Gemini as the LLM provider.
+    """
 
     _instance: Optional["Config"] = None
     _config: dict = {}
@@ -38,12 +41,11 @@ class Config:
         """Get API key for a provider.
 
         Args:
-            provider: Provider name ("openai", "anthropic", "google")
+            provider: Provider name (currently only "google" is supported)
 
         Returns:
             API key string or None if not configured
         """
-        # First check config file
         try:
             key = self._config.get(provider, {}).get("api_key")
             return key
@@ -52,7 +54,7 @@ class Config:
 
     def get_default_model(self) -> str:
         """Get the default model."""
-        return self._config.get("defaults", {}).get("model", "gpt-4o-mini")
+        return self._config.get("defaults", {}).get("model", "gemini-2.0-flash")
 
     def get_default_rulebook(self) -> str:
         """Get the default rulebook."""
@@ -62,10 +64,9 @@ class Config:
         """Check if a provider has an API key configured."""
         return bool(self.get_api_key(provider))
 
-    def get_configured_providers(self) -> list[str]:
-        """Get list of providers that have API keys configured."""
-        providers = ["openai", "anthropic", "google"]
-        return [p for p in providers if self.is_provider_configured(p)]
+    def is_google_configured(self) -> bool:
+        """Check if Google API key is configured."""
+        return self.is_provider_configured("google")
 
     # RAG settings
     def is_rag_enabled(self) -> bool:
@@ -79,6 +80,10 @@ class Config:
     def get_rag_show_sources(self) -> bool:
         """Check if RAG sources should be shown."""
         return self._config.get("rag", {}).get("show_sources", True)
+
+    def get_system_prompt(self) -> str:
+        """Get the system prompt for the LLM from config.yaml."""
+        return self._config.get("system_prompt", "")
 
 
 # Global config instance

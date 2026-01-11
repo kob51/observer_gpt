@@ -2,6 +2,7 @@
 
 import sys
 import time
+import threading
 from pathlib import Path
 
 # Add project root to path
@@ -9,32 +10,43 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import streamlit as st
 
-from src.llm import AVAILABLE_MODELS, get_llm
-from src.context import search_images, load_rulebook_context
+from src.llm import get_llm
+from src.context import search_images
 from src.config import config
 
 
+# Background loading for RAG resources
 @st.cache_resource
-def warmup_cache():
-    """Pre-load embedding model and rulebook content on app startup.
+def start_background_loading():
+    """Start loading RAG resources in background thread."""
+    state = {"ready": False, "error": None}
 
-    This runs once when the app starts, so the first query is fast.
-    """
-    # Load rulebook content (cached via lru_cache)
-    load_rulebook_context("usau")
-    load_rulebook_context("wfdf")
+    def load_resources():
+        try:
+            from src.rag import get_retriever
+            # Pre-load retrievers for all rulebook options
+            get_retriever("usau")
+            get_retriever("wfdf")
+            get_retriever("both")
+            state["ready"] = True
+        except Exception as e:
+            state["error"] = str(e)
 
-    # Initialize RAG retriever (loads embedding model + embeddings)
-    from src.rag import get_retriever
-    get_retriever("usau")
-    get_retriever("wfdf")
-    get_retriever("both")
-
-    return True
+    thread = threading.Thread(target=load_resources, daemon=True)
+    thread.start()
+    return state, thread
 
 
-# Pre-warm caches on app startup
-warmup_cache()
+# Start background loading immediately (non-blocking)
+_load_state, _load_thread = start_background_loading()
+
+
+def wait_for_resources(timeout: float = 30.0) -> bool:
+    """Wait for background resources to load. Returns True if ready."""
+    _load_thread.join(timeout=timeout)
+    if _load_state["error"]:
+        raise RuntimeError(f"Failed to load resources: {_load_state['error']}")
+    return _load_state["ready"]
 
 
 # Page config
@@ -47,24 +59,10 @@ st.set_page_config(
 st.title("🥏 Observer-GPT")
 st.caption("Your AI-powered Ultimate Frisbee rules assistant")
 
-# Filter models to only show those with configured API keys
-configured_providers = config.get_configured_providers()
-available_model_options = {
-    info["display_name"]: model_id
-    for model_id, info in AVAILABLE_MODELS.items()
-    if info["provider"] in configured_providers
-}
-
-# Check if any models are available
-if not available_model_options:
-    st.error("No API keys configured. Please add API keys to `config.yaml`.")
+# Check if Google API key is configured
+if not config.get_api_key("google"):
+    st.error("Google API key not configured. Please add it to `config.yaml`.")
     st.code("""# config.yaml
-openai:
-  api_key: "sk-..."
-
-anthropic:
-  api_key: "sk-ant-..."
-
 google:
   api_key: "AI..."
 """)
@@ -73,23 +71,6 @@ google:
 # Sidebar for settings
 with st.sidebar:
     st.header("Settings")
-
-    # Model selection (only configured models)
-    default_model = config.get_default_model()
-    default_display = AVAILABLE_MODELS.get(default_model, {}).get("display_name")
-
-    # Find default index
-    model_list = list(available_model_options.keys())
-    default_index = 0
-    if default_display in model_list:
-        default_index = model_list.index(default_display)
-
-    selected_display = st.selectbox(
-        "Model",
-        options=model_list,
-        index=default_index,
-    )
-    selected_model = available_model_options[selected_display]
 
     # Rulebook selection
     default_rulebook = config.get_default_rulebook()
@@ -109,7 +90,7 @@ with st.sidebar:
     use_rag = st.toggle(
         "Use RAG (retrieval)",
         value=config.is_rag_enabled(),
-        help="RAG retrieves only relevant sections (~5 chunks) instead of the full rulebook (~40k tokens). Faster and cheaper, but may miss some context.",
+        help="RAG retrieves only relevant sections (~10 chunks) instead of the full rulebook. Faster and cheaper, but may miss some context.",
     )
 
     if use_rag:
@@ -126,13 +107,6 @@ with st.sidebar:
     else:
         rag_top_k = 10  # Not used in full context mode
         st.caption("Mode: Full context")
-
-    st.divider()
-
-    # Show configured providers
-    st.caption("Configured providers:")
-    for provider in configured_providers:
-        st.caption(f"  ✓ {provider.title()}")
 
     st.divider()
 
@@ -205,7 +179,12 @@ if prompt := st.chat_input("Describe what happened on the field..."):
             timing = {"start": time.time(), "first_token": None}
 
             # Get LLM
-            llm = get_llm(selected_model, rulebook=rulebook)
+            llm = get_llm(rulebook=rulebook)
+
+            # Wait for RAG resources if needed
+            if use_rag and not _load_state["ready"]:
+                with st.spinner("Loading embedding model..."):
+                    wait_for_resources()
 
             # Show loading indicator until first chunk arrives
             mode_text = "Retrieving relevant sections..." if use_rag else "Processing full rulebook..."
@@ -215,7 +194,7 @@ if prompt := st.chat_input("Describe what happened on the field..."):
             # Stream the response (shows text as it generates)
             def stream_with_loading():
                 first_chunk = True
-                for chunk in llm.query_stream(prompt, include_images=True, use_rag=use_rag, rag_top_k=rag_top_k):
+                for chunk in llm.query_stream(prompt, use_rag=use_rag, rag_top_k=rag_top_k):
                     if first_chunk:
                         timing["first_token"] = time.time() - timing["start"]
                         status_placeholder.empty()  # Clear loading text
@@ -229,14 +208,18 @@ if prompt := st.chat_input("Describe what happened on the field..."):
             # Get full result with metadata
             result = llm.get_last_query_result(full_response)
 
-            # Check for relevant images (filter by selected rulebook)
-            images = search_images(prompt, rulebook=rulebook)
-            if images:
-                with st.expander("📷 Related Diagrams"):
-                    for img in images[:3]:  # Show max 3 images
-                        img_path = Path(img["path"])
-                        if img_path.exists():
-                            st.image(str(img_path), caption=img["description"])
+            # Check for relevant images from the "Relevant Diagrams:" section
+            import re
+            diagrams_match = re.search(r'Relevant Diagrams?:\s*(.+?)(?:\n\n|$)', full_response, re.IGNORECASE | re.DOTALL)
+            if diagrams_match:
+                diagrams_text = diagrams_match.group(1)
+                images = search_images(diagrams_text, rulebook=rulebook)
+                if images:
+                    with st.expander("📷 Related Diagrams"):
+                        for img in images:
+                            img_path = Path(img["path"])
+                            if img_path.exists():
+                                st.image(str(img_path), caption=img["description"])
 
             # Calculate additional metrics
             input_tokens = llm._last_usage.get("prompt_tokens", 0) if hasattr(llm, '_last_usage') and llm._last_usage else None

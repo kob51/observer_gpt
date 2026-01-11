@@ -62,14 +62,12 @@ class BaseLLM(ABC):
     def query(
         self,
         question: str,
-        include_images: bool = False,
         use_rag: Optional[bool] = None,
     ) -> QueryResult:
         """Query the LLM about Ultimate Frisbee rules.
 
         Args:
             question: The user's question about rules
-            include_images: Whether to include image references in response
             use_rag: Override RAG setting for this query (None = use instance default)
 
         Returns:
@@ -78,7 +76,7 @@ class BaseLLM(ABC):
         # Determine RAG mode for this query
         rag_enabled = use_rag if use_rag is not None else self._use_rag
 
-        prompt = self._build_prompt(question, include_images, use_rag=rag_enabled)
+        prompt = self._build_prompt(question, use_rag=rag_enabled)
         response = self._query_llm(prompt)
         result = self._parse_response(response)
 
@@ -91,7 +89,6 @@ class BaseLLM(ABC):
     def query_stream(
         self,
         question: str,
-        include_images: bool = False,
         use_rag: Optional[bool] = None,
         rag_top_k: Optional[int] = None,
     ):
@@ -99,7 +96,6 @@ class BaseLLM(ABC):
 
         Args:
             question: The user's question about rules
-            include_images: Whether to include image references in response
             use_rag: Override RAG setting for this query (None = use instance default)
             rag_top_k: Number of chunks to retrieve (None = use instance default)
 
@@ -114,7 +110,7 @@ class BaseLLM(ABC):
         if rag_top_k is not None:
             self._rag_top_k = rag_top_k
 
-        prompt = self._build_prompt(question, include_images, use_rag=rag_enabled)
+        prompt = self._build_prompt(question, use_rag=rag_enabled)
 
         # Use streaming if available, otherwise fall back to regular query
         if hasattr(self, 'stream_query'):
@@ -139,10 +135,11 @@ class BaseLLM(ABC):
     def _build_prompt(
         self,
         question: str,
-        include_images: bool = False,
         use_rag: bool = False,
     ) -> str:
         """Build the full prompt with context and question."""
+        from src.config import config
+
         # Get context based on mode
         if use_rag:
             context = self._get_rag_context(question)
@@ -151,15 +148,10 @@ class BaseLLM(ABC):
             context = self.context
             context_note = "(Full rulebook)"
 
-        system_prompt = f"""You are an expert Ultimate Frisbee rules advisor. Answer questions using ONLY the official rulebook content provided below.
+        # Get system prompt from config
+        base_prompt = config.get_system_prompt()
 
-Rules:
-1. Cite specific rule numbers when answering (e.g., "Rule 17.C.2" or "Rule 12.1.1")
-2. If the rules don't clearly address the question, say so
-3. Be concise but thorough
-4. If USAU and WFDF rules differ on a topic, explain both
-
-{"5. When relevant, mention if there are diagrams or images that could help (field diagram, hand signals)" if include_images else ""}
+        system_prompt = f"""{base_prompt}
 
 RULEBOOK CONTENT {context_note}:
 {context}

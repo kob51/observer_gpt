@@ -92,7 +92,7 @@ def get_image_path(rulebook: str, image_key: str) -> Optional[Path]:
 
 
 def search_images(query: str, rulebook: str = "both") -> list[dict]:
-    """Search for relevant images based on keywords.
+    """Search for relevant images based on exact keyword phrase matches.
 
     Args:
         query: Search query (e.g., "field diagram", "hand signal")
@@ -101,28 +101,20 @@ def search_images(query: str, rulebook: str = "both") -> list[dict]:
     Returns:
         List of matching image info dicts with paths
     """
+    import re
+
     catalog = load_image_catalog()
     query_lower = query.lower()
-
-    # Filter out common stop words to avoid false matches
-    stop_words = {
-        "a", "an", "the", "is", "are", "was", "were", "be", "been", "being",
-        "have", "has", "had", "do", "does", "did", "will", "would", "could",
-        "should", "may", "might", "must", "shall", "can", "need", "dare",
-        "to", "of", "in", "for", "on", "with", "at", "by", "from", "as",
-        "into", "through", "during", "before", "after", "above", "below",
-        "between", "under", "again", "then", "once", "here", "there", "when",
-        "where", "why", "how", "all", "each", "few", "more", "most", "other",
-        "some", "such", "no", "nor", "not", "only", "own", "same", "so",
-        "than", "too", "very", "just", "and", "but", "if", "or", "because",
-        "until", "while", "about", "against", "what", "which", "who", "this",
-        "that", "these", "those", "am", "i", "me", "my", "we", "our", "you",
-        "your", "he", "him", "she", "her", "it", "its", "they", "them",
-        "show", "give", "tell", "image", "picture", "photo", "see", "please",
-    }
-
-    query_words = [w for w in query_lower.split() if w not in stop_words and len(w) > 2]
     results = []
+
+    def keyword_matches(keywords: list[str], text: str) -> bool:
+        """Check if any keyword phrase appears in text as a complete phrase."""
+        for kw in keywords:
+            # Use word boundaries to match complete phrases only
+            pattern = r'\b' + re.escape(kw.lower()) + r'\b'
+            if re.search(pattern, text):
+                return True
+        return False
 
     # Filter catalog by selected rulebook
     if rulebook == "both":
@@ -134,12 +126,8 @@ def search_images(query: str, rulebook: str = "both") -> list[dict]:
         items = catalog[rb]
         for key, info in items.items():
             if isinstance(info, dict):
-                # Check keywords
                 keywords = info.get("keywords", [])
-                description = info.get("description", "").lower()
-
-                if any(kw.lower() in query_lower for kw in keywords) or \
-                   any(word in description for word in query_words):
+                if keyword_matches(keywords, query_lower):
                     results.append({
                         "rulebook": rb,
                         "key": key,
@@ -151,10 +139,7 @@ def search_images(query: str, rulebook: str = "both") -> list[dict]:
                 # Handle arrays like hand_signals
                 for item in info:
                     keywords = item.get("keywords", [])
-                    description = item.get("description", "").lower()
-
-                    if any(kw.lower() in query_lower for kw in keywords) or \
-                       any(word in description for word in query_words):
+                    if keyword_matches(keywords, query_lower):
                         results.append({
                             "rulebook": rb,
                             "key": key,
