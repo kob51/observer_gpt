@@ -1,0 +1,62 @@
+{
+  "usau": {
+    "field_diagram": {
+      "file": "usau/field_diagram.png",
+      "description": "USAU official field diagram showing dimensions: 70 yards (64m) central zone, 20 yards (18m) end zones, 40 yards (37m) width",
+      "keywords": ["field", "diagram", "dimensions", "end zone", "central zone", "brick mark", "usau"],
+      "source": "Appendix A: Field Diagram"
+    },
+    "hand_signals": [
+      {
+        "file": "usau/usau_page45_img1.jpeg",
+        "description": "Hand signal: Disc direction indicator - arm extended horizontally pointing direction of possession",
+        "keywords": ["hand signal", "direction", "possession", "observer"],
+        "source": "Appendix D: Hand Signals"
+      },
+      {
+        "file": "usau/usau_page45_img2.jpeg",
+        "description": "Hand signal: One finger raised - indicating count or point",
+        "keywords": ["hand signal", "count", "point", "observer"],
+        "source": "Appendix D: Hand Signals"
+      },
+      {
+        "file": "usau/usau_page45_img3.jpeg",
+        "description": "Hand signal from Appendix D",
+        "keywords": ["hand signal", "observer"],
+        "source": "Appendix D: Hand Signals"
+      },
+      {
+        "file": "usau/usau_page45_img4.jpeg",
+        "description": "Hand signal from Appendix D",
+        "keywords": ["hand signal", "observer"],
+        "source": "Appendix D: Hand Signals"
+      },
+      {
+        "file": "usau/usau_page45_img5.jpeg",
+        "description": "Hand signal from Appendix D",
+        "keywords": ["hand signal", "observer"],
+        "source": "Appendix D: Hand Signals"
+      },
+      {
+        "file": "usau/usau_page45_img6.jpeg",
+        "description": "Hand signal from Appendix D",
+        "keywords": ["hand signal", "observer"],
+        "source": "Appendix D: Hand Signals"
+      }
+    ]
+  },
+  "wfdf": {
+    "logo": {
+      "file": "wfdf/wfdf_page1_img1.jpeg",
+      "description": "WFDF logo",
+      "keywords": ["logo", "wfdf"],
+      "source": "Cover page"
+    },
+    "field_diagram": {
+      "file": "wfdf/field_diagram.jpeg",
+      "description": "WFDF official field diagram showing dimensions: 64m central zone, 18m end zones, 37m width, 100m total length with brick marks",
+      "keywords": ["field", "diagram", "dimensions", "end zone", "central zone", "brick mark", "wfdf"],
+      "source": "Section 2: Playing Field (Figure 1)"
+    }
+  }
+}

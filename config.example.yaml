@@ -1,0 +1,16 @@
+# Observer-GPT Configuration
+# Copy this to config.yaml and fill in your API keys
+
+openai:
+  api_key: "sk-..."
+
+anthropic:
+  api_key: "sk-ant-..."
+
+google:
+  api_key: "AI..."
+
+# Default settings
+defaults:
+  model: "gpt-4o-mini"
+  rulebook: "usau"
