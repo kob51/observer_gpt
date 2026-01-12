@@ -94,18 +94,3 @@ class VectorStore:
             results.append(chunk)
 
         return results
-
-    def clear_cache(self, rulebook: Optional[str] = None):
-        """Clear cached embeddings.
-
-        Args:
-            rulebook: If specified, only clear cache for this rulebook.
-                      If None, clear all caches.
-        """
-        if rulebook:
-            cache_file = self._cache_dir / f"{rulebook}_embeddings.pkl"
-            if cache_file.exists():
-                cache_file.unlink()
-        else:
-            for cache_file in self._cache_dir.glob("*.pkl"):
-                cache_file.unlink()

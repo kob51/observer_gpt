@@ -3,13 +3,11 @@
 from .rulebook_loader import (
     load_rulebook_context,
     load_image_catalog,
-    get_image_path,
     search_images,
 )
 
 __all__ = [
     "load_rulebook_context",
     "load_image_catalog",
-    "get_image_path",
     "search_images",
 ]

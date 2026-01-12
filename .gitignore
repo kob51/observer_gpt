@@ -4,6 +4,19 @@ config.yaml
 # RAG cache (generated embeddings)
 .rag_cache/
 
+# Image extraction backups and intermediate files
+parsed_rules/images/_backup_*/
+parsed_rules/images/usau_clean/
+parsed_rules/images/usau_auto/
+parsed_rules/images/usau_web/
+parsed_rules/images/usau_old/
+parsed_rules/images/**/._*
+image_review.html
+new_extraction_review.html
+web_extraction_review.html
+*.backup
+*.backup_*
+
 # Python
 __pycache__/
 *.py[cod]

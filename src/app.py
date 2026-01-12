@@ -213,13 +213,34 @@ if prompt := st.chat_input("Describe what happened on the field..."):
             diagrams_match = re.search(r'Relevant Diagrams?:\s*(.+?)(?:\n\n|$)', full_response, re.IGNORECASE | re.DOTALL)
             if diagrams_match:
                 diagrams_text = diagrams_match.group(1)
-                images = search_images(diagrams_text, rulebook=rulebook)
+                # Parse diagram names line by line to preserve order
+                diagram_lines = [line.strip().lstrip('-').strip() for line in diagrams_text.split('\n') if line.strip()]
+
+                # Search for each diagram individually and preserve order
+                images = []
+                for diagram_name in diagram_lines:
+                    matches = search_images(diagram_name, rulebook=rulebook)
+                    # Add first match for this diagram (avoid duplicates)
+                    if matches and not any(img['description'] == matches[0]['description'] for img in images):
+                        images.append(matches[0])
+
                 if images:
-                    with st.expander("📷 Related Diagrams"):
-                        for img in images:
-                            img_path = Path(img["path"])
-                            if img_path.exists():
-                                st.image(str(img_path), caption=img["description"])
+                    with st.expander("📷 Relevant Diagrams"):
+                        # Display images in centered grid (2 columns)
+                        for i in range(0, len(images), 2):
+                            cols = st.columns(2)
+                            for j, col in enumerate(cols):
+                                if i + j < len(images):
+                                    img = images[i + j]
+                                    img_path = Path(img["path"])
+                                    if img_path.exists():
+                                        with col:
+                                            # Center the image within the column
+                                            st.image(
+                                                str(img_path),
+                                                caption=img["description"],
+                                                width='stretch'
+                                            )
 
             # Calculate additional metrics
             input_tokens = llm._last_usage.get("prompt_tokens", 0) if hasattr(llm, '_last_usage') and llm._last_usage else None

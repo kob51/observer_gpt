@@ -33,10 +33,6 @@ class Config:
         else:
             self._config = {}
 
-    def reload(self):
-        """Reload configuration from file."""
-        self._load_config()
-
     def get_api_key(self, provider: str) -> Optional[str]:
         """Get API key for a provider.
 
@@ -60,14 +56,6 @@ class Config:
         """Get the default rulebook."""
         return self._config.get("defaults", {}).get("rulebook", "usau")
 
-    def is_provider_configured(self, provider: str) -> bool:
-        """Check if a provider has an API key configured."""
-        return bool(self.get_api_key(provider))
-
-    def is_google_configured(self) -> bool:
-        """Check if Google API key is configured."""
-        return self.is_provider_configured("google")
-
     # RAG settings
     def is_rag_enabled(self) -> bool:
         """Check if RAG mode is enabled."""
@@ -76,10 +64,6 @@ class Config:
     def get_rag_top_k(self) -> int:
         """Get number of chunks to retrieve in RAG mode."""
         return self._config.get("rag", {}).get("top_k", 5)
-
-    def get_rag_show_sources(self) -> bool:
-        """Check if RAG sources should be shown."""
-        return self._config.get("rag", {}).get("show_sources", True)
 
     def get_system_prompt(self) -> str:
         """Get the system prompt for the LLM from config.yaml."""

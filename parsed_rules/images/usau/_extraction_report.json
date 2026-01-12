@@ -1,0 +1,339 @@
+{
+  "source": "https://usaultimate.org/rules/",
+  "total_images": 37,
+  "images": [
+    {
+      "filename": "1_1.png",
+      "caption": "signal_1_1",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/field.png",
+      "appendix": "Appendix A",
+      "size": 20057,
+      "format": "png",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "in_or_out_of_bounds.jpg",
+      "caption": "In- or out-of-bounds",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/inoutofbounds.jpg",
+      "appendix": "Appendix D",
+      "size": 79530,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "disc_up.jpg",
+      "caption": "Disc up",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/discup.jpg",
+      "appendix": "Appendix D",
+      "size": 86764,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "disc_down.jpg",
+      "caption": "Disc down",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/discdown.jpg",
+      "appendix": "Appendix D",
+      "size": 79709,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "in_the_end_zone.jpg",
+      "caption": "In the end zone",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/inendzone.jpg",
+      "appendix": "Appendix D",
+      "size": 70700,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "goal.jpg",
+      "caption": "Goal",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/goal.jpg",
+      "appendix": "Appendix D",
+      "size": 47397,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "force_out_foul.jpg",
+      "caption": "Force-out foul",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/forceoutfoul.jpg",
+      "appendix": "Appendix D",
+      "size": 78885,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "bobble.gif",
+      "caption": "Bobble",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/bobble.gif",
+      "appendix": "Appendix D",
+      "size": 85475,
+      "format": "gif",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "foul.jpg",
+      "caption": "Foul",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/foul.jpg",
+      "appendix": "Appendix D",
+      "size": 84957,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "no_contest.jpg",
+      "caption": "No contest",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/nocontest.jpg",
+      "appendix": "Appendix D",
+      "size": 91441,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "contest.jpg",
+      "caption": "Contest",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/contest.jpg",
+      "appendix": "Appendix D",
+      "size": 82339,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "retraction_3_swipes.gif",
+      "caption": "Retraction (3 swipes)",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/retraction.gif",
+      "appendix": "Appendix D",
+      "size": 284534,
+      "format": "gif",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "injury_timeout.jpg",
+      "caption": "Injury timeout",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/injurytimeout.jpg",
+      "appendix": "Appendix D",
+      "size": 80768,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "injury_substitution.gif",
+      "caption": "Injury substitution",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/injurysub.gif",
+      "appendix": "Appendix D",
+      "size": 88522,
+      "format": "gif",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "disc_uncatchable.gif",
+      "caption": "Disc uncatchable",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/discuncatchable.gif",
+      "appendix": "Appendix D",
+      "size": 117245,
+      "format": "gif",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "pick.jpg",
+      "caption": "Pick",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/pick.jpg",
+      "appendix": "Appendix D",
+      "size": 79883,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "travel.gif",
+      "caption": "Travel",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/travel.gif",
+      "appendix": "Appendix D",
+      "size": 103788,
+      "format": "gif",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "double_team.jpg",
+      "caption": "Double team",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/doubleteam.jpg",
+      "appendix": "Appendix D",
+      "size": 77026,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "disc_space.gif",
+      "caption": "Disc space",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/discspace.gif",
+      "appendix": "Appendix D",
+      "size": 105972,
+      "format": "gif",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "fast_count.jpg",
+      "caption": "Fast count",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/fastcount.jpg",
+      "appendix": "Appendix D",
+      "size": 211565,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "vision_blocking.jpg",
+      "caption": "Vision blocking",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/visionblocking.jpg",
+      "appendix": "Appendix D",
+      "size": 93217,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "stall_or_time_violation.gif",
+      "caption": "Stall or time violation",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/stall.gif",
+      "appendix": "Appendix D",
+      "size": 115806,
+      "format": "gif",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "readiness_or_brick.jpg",
+      "caption": "Readiness or brick",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/readiness.jpg",
+      "appendix": "Appendix D",
+      "size": 88067,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "play_has_stopped.gif",
+      "caption": "Play has stopped",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/stopplay.gif",
+      "appendix": "Appendix D",
+      "size": 291563,
+      "format": "gif",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "announce_stall_use_appropriate_number_of_fingers.jpg",
+      "caption": "Announce stall (use appropriate number of fingers)",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/announcestall.jpg",
+      "appendix": "Appendix D",
+      "size": 90248,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "gender_ratio_4_women_matching_players.jpg",
+      "caption": "Gender ratio: 4 women-matching players",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/genderratio4women.jpg",
+      "appendix": "Appendix D",
+      "size": 68626,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "gender_ratio_4_men_matching_players.jpg",
+      "caption": "Gender ratio: 4 men-matching players",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/genderratio4men.jpg",
+      "appendix": "Appendix D",
+      "size": 104362,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "offsides.jpg",
+      "caption": "Offsides",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/offsides.jpg",
+      "appendix": "Appendix D",
+      "size": 110754,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "10_seconds.jpg",
+      "caption": "10 seconds",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/10seconds.jpg",
+      "appendix": "Appendix D",
+      "size": 73655,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "20_seconds.jpg",
+      "caption": "20 seconds",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/20seconds.jpg",
+      "appendix": "Appendix D",
+      "size": 87301,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "pre_stall_count.gif",
+      "caption": "Pre-stall count",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/prestallcount.gif",
+      "appendix": "Appendix D",
+      "size": 77920,
+      "format": "gif",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "timeout.jpg",
+      "caption": "Timeout",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/timeout-player.jpg",
+      "appendix": "Appendix D",
+      "size": 87193,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "spirit_timeout.jpg",
+      "caption": "Spirit timeout",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/spirittimeout.jpg",
+      "appendix": "Appendix D",
+      "size": 92053,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "observer_ruling.jpg",
+      "caption": "Observer ruling",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/observerruling.jpg",
+      "appendix": "Appendix D",
+      "size": 84560,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "observer_overrule.gif",
+      "caption": "Observer overrule",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/observeroverrule.gif",
+      "appendix": "Appendix D",
+      "size": 83053,
+      "format": "gif",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "call_on_field.jpg",
+      "caption": "Call on field",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/callonfield.jpg",
+      "appendix": "Appendix D",
+      "size": 83581,
+      "format": "jpg",
+      "is_duplicate_name": false
+    },
+    {
+      "filename": "timeout_2.jpg",
+      "caption": "Timeout",
+      "url": "https://raw.githubusercontent.com/andrewlovseth/rules-of-ultimate/master/images/timeout-obs.jpg",
+      "appendix": "Appendix D",
+      "size": 91917,
+      "format": "jpg",
+      "is_duplicate_name": true
+    }
+  ]
+}

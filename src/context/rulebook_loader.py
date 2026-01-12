@@ -63,34 +63,6 @@ def load_image_catalog() -> dict:
         return json.load(f)
 
 
-def get_image_path(rulebook: str, image_key: str) -> Optional[Path]:
-    """Get the file path for a specific image.
-
-    Args:
-        rulebook: "usau" or "wfdf"
-        image_key: Key from image_catalog.json (e.g., "field_diagram")
-
-    Returns:
-        Path to the image file, or None if not found
-    """
-    catalog = load_image_catalog()
-
-    if rulebook not in catalog:
-        return None
-
-    if image_key not in catalog[rulebook]:
-        return None
-
-    image_info = catalog[rulebook][image_key]
-    image_file = image_info.get("file")
-
-    if not image_file:
-        return None
-
-    image_path = get_parsed_rules_path() / "images" / image_file
-    return image_path if image_path.exists() else None
-
-
 def search_images(query: str, rulebook: str = "both") -> list[dict]:
     """Search for relevant images based on exact keyword phrase matches.
 

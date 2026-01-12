@@ -7,7 +7,7 @@ Dual Ruleset Support: Users can toggle between USA Ultimate (USAU) and WFDF rule
 Natural Language Query: Players describe a scenario (e.g., "I was hit in the air while catching a score") and receive a plain-English ruling.
 
 Rule Citations: Every answer must cite specific rule numbers (e.g., Rule 17.C.2) to ensure authority on the field.
-    
+
 Continuation Logic: The AI must specifically address whether play stops, where the disc goes, and the resulting stall count.
 
 2. Technical Stack (Proposed)
@@ -34,8 +34,3 @@ High Contrast: Legible in direct sunlight.
 Fast Response: Answers should be delivered in under 3 seconds to avoid holding up the game.
 
 Ruleset Toggle: A prominent switch to toggle between the two organizations.
-
-5. Success Metrics
-Accuracy: The bot must not "hallucinate" rules; it should only answer based on the provided Markdown files.
-
-Clarity: The final output should prioritize "What happens next?" (Disc location and stall count) over legalistic jargon.
